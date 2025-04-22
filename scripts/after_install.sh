@@ -22,6 +22,10 @@ if [ ! -d "venv" ]; then
     echo "Creando nuevo entorno virtual..."
     python3 -m venv venv
     echo "Entorno virtual creado"
+else
+    echo "Limpiando entorno virtual existente..."
+    rm -rf venv
+    python3 -m venv venv
 fi
 
 # Asegurar permisos del entorno virtual
@@ -49,5 +53,11 @@ ls -la
 # Instalar dependencias del proyecto
 echo "Instalando dependencias..."
 pip install -r requirements.txt
+
+# Verificar instalación
+echo "Verificando instalación de Flask..."
+python3 -c "import flask; print(f'Flask version: {flask.__version__}')"
+echo "Verificando instalación de Werkzeug..."
+python3 -c "import werkzeug; print(f'Werkzeug version: {werkzeug.__version__}')"
 
 echo "Instalación completada exitosamente" 
