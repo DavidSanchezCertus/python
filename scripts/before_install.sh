@@ -1,7 +1,15 @@
 #!/bin/bash
 # Actualizar el sistema e instalar dependencias
-sudo apt-get update
-sudo apt-get install -y python3-pip python3-venv
+sudo yum update -y
+sudo yum install -y python3-pip
+
+# Limpiar el directorio de destino si existe
+if [ -d "/home/ec2-user/proyectoPython" ]; then
+    sudo rm -rf /home/ec2-user/proyectoPython/*
+fi
+
+# Crear el directorio si no existe
+sudo mkdir -p /home/ec2-user/proyectoPython
 
 # Crear y activar entorno virtual si no existe
 if [ ! -d "/home/ec2-user/proyectoPython/venv" ]; then
