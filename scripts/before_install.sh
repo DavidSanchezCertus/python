@@ -10,6 +10,7 @@ fi
 
 # Crear el directorio si no existe
 sudo mkdir -p /home/ec2-user/proyectoPython
+sudo chown -R ec2-user:ec2-user /home/ec2-user/proyectoPython
 
 # Crear y activar entorno virtual si no existe
 if [ ! -d "/home/ec2-user/proyectoPython/venv" ]; then
